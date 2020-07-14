@@ -1,11 +1,14 @@
 package com.chrosciu.ducks;
 
 import lombok.Getter;
+import lombok.experimental.Delegate;
 
 @Getter
 public class ElectricDuck implements DuckBehaviour {
+    @Delegate
     private final DuckBehaviourDelegate duckBehaviourDelegate =
             new DuckBehaviourDelegate(this::getVoicePreCheck, this::getSwimVoicePreCheck);
+
     private boolean batteriesPresent = false;
 
     public void insertBatteries() {
@@ -20,16 +23,6 @@ public class ElectricDuck implements DuckBehaviour {
             throw new IllegalStateException("Batteries already removed!");
         }
         batteriesPresent = false;
-    }
-
-    @Override
-    public String getVoice() {
-        return duckBehaviourDelegate.getVoice();
-    }
-
-    @Override
-    public String getSwimVoice() {
-        return duckBehaviourDelegate.getVoice();
     }
 
     private void getVoicePreCheck() {
