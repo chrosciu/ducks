@@ -3,7 +3,7 @@ package com.chrosciu.ducks;
 import lombok.Getter;
 
 @Getter
-public class ElectricDuck extends Duck {
+public class ElectricDuck extends BaseDuck {
     private boolean batteriesPresent = false;
 
     public void insertBatteries() {
