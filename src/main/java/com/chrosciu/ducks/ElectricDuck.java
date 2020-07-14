@@ -3,7 +3,8 @@ package com.chrosciu.ducks;
 import lombok.Getter;
 
 @Getter
-public class ElectricDuck extends BaseDuck {
+public class ElectricDuck implements DuckBehaviour {
+    private final DuckBehaviourDelegate duckBehaviourDelegate = new DuckBehaviourDelegate();
     private boolean batteriesPresent = false;
 
     public void insertBatteries() {
@@ -25,7 +26,7 @@ public class ElectricDuck extends BaseDuck {
         if (!batteriesPresent) {
             throw new IllegalStateException("Cannot give voice without batteries!");
         }
-        return super.getVoice();
+        return duckBehaviourDelegate.getVoice();
     }
 
     @Override
@@ -33,6 +34,6 @@ public class ElectricDuck extends BaseDuck {
         if (!batteriesPresent) {
             throw new IllegalStateException("Cannot swim without batteries!");
         }
-        return super.getSwimVoice();
+        return duckBehaviourDelegate.getVoice();
     }
 }
