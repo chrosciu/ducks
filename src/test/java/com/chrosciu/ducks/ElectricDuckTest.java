@@ -12,4 +12,12 @@ public class ElectricDuckTest {
         //then
         assertThrows(IllegalStateException.class, electricDuck::getVoice);
     }
+
+    @Test
+    public void shouldNotGiveSwimVoiceWithoutInsertingBatteries() {
+        //given
+        ElectricDuck electricDuck = new ElectricDuck();
+        //then
+        assertThrows(IllegalStateException.class, electricDuck::getSwimVoice);
+    }
 }

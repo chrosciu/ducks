@@ -27,4 +27,12 @@ public class ElectricDuck extends Duck {
         }
         return super.getVoice();
     }
+
+    @Override
+    public String getSwimVoice() {
+        if (!batteriesPresent) {
+            throw new IllegalStateException("Cannot swim without batteries!");
+        }
+        return super.getSwimVoice();
+    }
 }
