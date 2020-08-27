@@ -5,8 +5,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.chrosciu.ducks.BaseDuck.SWIM_VOICE;
-import static com.chrosciu.ducks.BaseDuck.VOICE;
+import static com.chrosciu.ducks.DuckBehaviourDelegate.SWIM_VOICE;
+import static com.chrosciu.ducks.DuckBehaviourDelegate.VOICE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DuckTest {

@@ -1,6 +1,6 @@
 package com.chrosciu.ducks;
 
-public abstract class BaseDuck {
+public class DuckBehaviourDelegate {
     public static final String VOICE = "Quack!";
     public static final String SWIM_VOICE = "Splash!";
 
