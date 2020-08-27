@@ -1,15 +1,11 @@
 package com.chrosciu.ducks;
 
+import lombok.experimental.Delegate;
+
+import static com.chrosciu.ducks.DuckBehaviourDelegate.DUMMY_PRE_CHECK;
+
 public class Duck implements DuckBehaviour {
-    private final DuckBehaviourDelegate duckBehaviourDelegate = new DuckBehaviourDelegate();
-
-    @Override
-    public String getVoice() {
-        return duckBehaviourDelegate.getVoice();
-    }
-
-    @Override
-    public String getSwimVoice() {
-        return duckBehaviourDelegate.getSwimVoice();
-    }
+    @Delegate
+    private final DuckBehaviourDelegate duckBehaviourDelegate =
+            new DuckBehaviourDelegate(DUMMY_PRE_CHECK, DUMMY_PRE_CHECK);
 }
